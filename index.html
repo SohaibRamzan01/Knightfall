@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#101923">
+    <title>Knightfall — Your next good move</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="header">
+      <a class="brand" href="index.html">
+        <span class="brand-icon" aria-hidden="true">
+        </span>Knightfall<span class="brand-dot">.</span>
+      </a>
+      <div class="header-right">
+        <span class="offline">Always ready to play</span>
+        <button id="theme" class="icon-button" aria-label="Toggle light theme">Light mode</button>
+      </div>
+    </header>
+    <main class="layout">
+      <section class="play-area" aria-label="Chess game">
+        <div id="top-player" class="player">
+        </div>
+        <div class="board-frame">
+          <div id="board" class="board" role="group" aria-label="Chessboard">
+          </div>
+          <div id="promotion" class="promotion" hidden>
+          </div>
+        </div>
+        <div id="bottom-player" class="player">
+        </div>
+        <div class="board-footer">
+          <span id="board-caption">A little focus. A better move.</span>
+          <button id="flip" class="text-button">Flip board &#8597;</button>
+        </div>
+      </section>
+      <aside class="panel">
+        <div class="panel-heading">
+          <div>
+            <h1>Your next good move.</h1>
+            <p>Make room for a little strategy.</p>
+          </div>
+          <span class="small-piece" aria-hidden="true">
+          </span>
+        </div>
+        <button id="new-game" class="primary full">New game <span>+</span>
+        </button>
+        <div class="status-box">
+          <span id="status-dot" class="status-dot">
+          </span>
+          <div>
+            <strong id="status" role="status" aria-live="polite">White to move</strong>
+            <span id="game-info" class="secondary">vs Computer · Club · Unlimited</span>
+          </div>
+        </div>
+        <div class="moves-heading">
+          <h2>Moves</h2>
+          <span id="move-count">0 played</span>
+        </div>
+        <div id="review-banner" hidden>
+          <span>Reviewing position</span>
+          <button id="live" class="text-button">Back to live &#8594;</button>
+        </div>
+        <div id="move-list" class="move-list" aria-label="Move history">
+          <p class="empty">The story starts with your first move.</p>
+        </div>
+        <div class="review-controls">
+          <button id="previous" aria-label="Previous position">&#8592;</button>
+          <span>Explore the game</span>
+          <button id="next" aria-label="Next position">&#8594;</button>
+        </div>
+        <div class="actions">
+          <button id="undo">Undo move</button>
+          <button id="copy">Copy PGN</button>
+          <button id="draw">Offer draw</button>
+          <button id="resign">Resign</button>
+        </div>
+        <div class="preferences">
+          <label for="board-theme">Board style</label>
+          <select id="board-theme">
+            <option value="green">Classic Green</option>
+            <option value="wood">Walnut Wood</option>
+            <option value="ocean">Ocean Blue</option>
+            <option value="purple">Midnight Purple</option>
+          </select>
+          <button id="sound" class="text-button" aria-label="Toggle sound">Sound on</button>
+        </div>
+        <p class="panel-note">No accounts. No distractions. Just chess.</p>
+      </aside>
+    </main>
+    <dialog id="new-dialog">
+      <form id="setup">
+        <div class="dialog-heading">
+          <h2>A fresh position.</h2>
+          <button type="button" class="close" data-close="new-dialog" aria-label="Close dialog">×</button>
+        </div>
+        <p>Choose your challenge and settle in.</p>
+        <label for="mode">Play against</label>
+        <select id="mode">
+          <option value="ai">Computer</option>
+          <option value="local">2 Players · local</option>
+        </select>
+        <label for="color">Your color</label>
+        <select id="color">
+          <option value="w">White</option>
+          <option value="b">Black</option>
+          <option value="random">Random</option>
+        </select>
+        <label for="level">Computer level</label>
+        <select id="level">
+          <option value="1">1 · Beginner</option>
+          <option value="2">2 · Casual</option>
+          <option value="3" selected>3 · Club</option>
+          <option value="4">4 · Master</option>
+        </select>
+        <label for="time">Time control</label>
+        <select id="time">
+          <option value="0">Unlimited</option>
+          <option value="180,2">3 + 2</option>
+          <option value="300,0">5 + 0</option>
+          <option value="600,0">10 + 0</option>
+          <option value="900,10">15 + 10</option>
+        </select>
+        <button class="primary full" type="submit">Let's play &#8594;</button>
+      </form>
+    </dialog>
+    <dialog id="end-dialog">
+      <div class="dialog-heading">
+        <h2 id="result-title">Game over</h2>
+        <button class="close" data-close="end-dialog" aria-label="Close result">×</button>
+      </div>
+      <div class="result-piece">
+      </div>
+      <p id="result-description">
+      </p>
+      <button id="again" class="primary full">Play again &#8594;</button>
+      <button class="full" data-close="end-dialog">Explore the game</button>
+    </dialog>
+    <dialog id="confirm-dialog">
+      <h2 id="confirm-title">
+      </h2>
+      <p id="confirm-description">
+      </p>
+      <div class="actions">
+        <button id="confirm-no">Keep playing</button>
+        <button id="confirm-yes" class="primary">Confirm</button>
+      </div>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden>
+    </div>
+    <script src="js/engine.js">
+    </script>
+    <script src="js/pieces.js">
+    </script>
+    <script src="js/ai.js">
+    </script>
+    <script src="js/sound.js">
+    </script>
+    <script src="js/app.js">
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "knightfall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Knightfall: a modern browser chess game with a built-in AI opponent.",
+  "scripts": {
+    "test": "node tests/perft.test.js && node tests/ai.test.js",
+    "build:web": "node scripts/build-web.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.0.0"
+  }
+}

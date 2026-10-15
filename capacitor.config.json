@@ -1,0 +1,9 @@
+{
+  "appId": "com.sohaibramzan.knightfall",
+  "appName": "Knightfall",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#101923",
+    "adjustMarginsForEdgeToEdge": "auto"
+  }
+}
